@@ -1,0 +1,6 @@
+#USAGE
+usage: 'python voice_t2s.py'
+
+#CONFIG
+env_filename: 'config.env'
+env_dirname: 'C:\_repos\chatforme_bots\config'
