@@ -49,7 +49,7 @@ def get_user_input(predefined_text=None):
     
 
 #Load parameters from config.yaml
-def load_yaml(yaml_filename='config.yaml', yaml_dirname='', is_testing=False):
+def load_yaml(yaml_filename='config.yaml', yaml_dirname='config', is_testing=False):
     import yaml
     import os
     import logging
@@ -105,3 +105,9 @@ def load_env(env_filename='config.env', env_dirname='config', is_testing=False):
         logging.info('Environment file loaded successfully.')
     else:
         logging.error('Failed to load environment file.')
+
+
+def join_paths(dirname, filename, endfile='users.txt'):
+    print("did something")
+
+
