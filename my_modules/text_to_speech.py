@@ -10,10 +10,9 @@ env_dirname=yaml_data['env_dirname']
 env_filename=yaml_data['env_filename']
 
 #config env
-load_env(env_filename=env_filename, env_dirname=env_dirname)
-ELEVENLABS_XI_API_KEY = os.getenv('ELEVENLABS_XI_API_KEY')
-ELEVENLABS_XI_VOICE_PERSONAL= os.getenv('ELEVENLABS_XI_VOICE_PERSONAL')
-ELEVENLABS_XI_VOICE_BUSINESS=''
+#load_env(env_filename=env_filename, env_dirname=env_dirname)
+#ELEVENLABS_XI_API_KEY = os.getenv('ELEVENLABS_XI_API_KEY')
+#ELEVENLABS_XI_VOICE_PERSONAL= os.getenv('ELEVENLABS_XI_VOICE_PERSONAL')
 
 
 #####################################################
@@ -58,7 +57,7 @@ def generate_t2s_object(ELEVENLABS_XI_API_KEY = None,
 
 
 ####################
-def get_voice_ids():
+def get_voice_ids(ELEVENLABS_XI_API_KEY=None):
     """
     Fetch available voice IDs from ElevenLabs API.
 
@@ -90,7 +89,7 @@ def get_voice_ids():
 
 
 ########################
-def get_voice_history():
+def get_voice_history(ELEVENLABS_XI_API_KEY=None):
     """
     Fetch voice generation history from ElevenLabs API.
 
