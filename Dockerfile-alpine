@@ -1,0 +1,50 @@
+#Dockerfile
+#1. Run the audio server
+# - ./pulseaudio-1.1/bin/pulseaudio.exe --use-pid-file=false -D
+#2. Build the Image
+# - docker build -f Dockerfile-alpine -t chatforme_gpt_t2s_image .
+#3. Run the container
+# - docker run --name chatforme_gpt_t2s_container -e PULSE_SERVER=host.docker.internal -it chatforme_gpt_t2s_image
+
+# Start alpine image.  This means we need to install python, etc.
+FROM alpine:3.14
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Add metadata using LABEL instruction (good practice)
+LABEL maintainer="eric.hitchman@example.com" \
+      version="1.2" \
+      description="Python3 application with pulse audio server & ffmpeg for chatgpt audio output"
+      
+# Update system packages and install ffmpeg
+RUN apk add --no-cache \
+    bash \
+    build-base \
+    python3-dev \
+    musl-dev \
+    python3 \
+    py3-pip \
+    ffmpeg \
+    pulseaudio \
+    alsa-utils \
+    alsa-plugins-pulse
+    #&& rm -rf /var/lib/apt/lists/*
+    #pulseaudio-utils \
+    #&& load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 \
+
+#Create and assign ownership to new user
+RUN adduser -D appuser && chown -R appuser:appuser /app
+
+# Copy requirements.txt and install the Python dependencies
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
+
+# Copy the rest of the application (assuming all files are needed)
+COPY . .
+
+# switch to user
+USER appuser
+
+# Set the default command to bash
+CMD bash
