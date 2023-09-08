@@ -34,4 +34,4 @@ This repository contains a suite of functions that integrate GPT from OpenAI and
 Remember, the text you type is submitted to openai's ChatGPT chatcompletion endpoint so be wary of personal information.
 
 1. Run `start_voice_and_container.sh` from a WSL/Linux terminal
-2. Run `python3 voice_t2s.py` script and follow on-screen prompts to input your text and listen to the generated speech.
+2. Run `python3 voice_t2s.py` from the bash terminal that opens and follow on-screen prompts to input your text and listen to the generated speech.
