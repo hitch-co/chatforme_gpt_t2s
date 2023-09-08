@@ -17,6 +17,7 @@ This repository contains a suite of functions that integrate GPT from OpenAI and
 1. Clone the repository.
 2. Install the required libraries and packages.
 3. Set up your OpenAI API key and ElevenLabs API key in a `.env` file as per the provided format.
+4. Separately, install ffmpeg (I used the gyan )
 4. Run the `voice_t2s.py` script to interact with the system.
 
 ## Dependencies
@@ -30,4 +31,7 @@ This repository contains a suite of functions that integrate GPT from OpenAI and
 
 ## Usage
 
-Run the `voice_t2s.py` script and follow on-screen prompts to input your text and listen to the generated speech.
+Remember, the text you type is submitted to openai's ChatGPT chatcompletion endpoint so be wary of personal information.
+
+1. Run `start_voice_and_container.sh` from a WSL/Linux terminal
+2. Run `python3 voice_t2s.py` script and follow on-screen prompts to input your text and listen to the generated speech.
